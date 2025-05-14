@@ -1,4 +1,4 @@
-# AtividadesEstruturaDeDados
+# Atividades de Estrutura de Dados (Sensores)
 
 Atividade
 
