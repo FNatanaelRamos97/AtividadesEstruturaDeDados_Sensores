@@ -8,7 +8,7 @@ Com o crescimento do volume de dados, tornou-se necessário implementar um siste
 
 Como desenvolvedor de software, você  é responsável por implementar 3 programas para este sistema:
 
-**Programa 1 – Organização dos Dados**
+**Programa 1 – Organização dos Dados.**
 O primeiro programa deve processar um arquivo contendo diversas leituras no seguinte formato:
 
  <TIMESTAMP> <ID_SENSOR> <VALOR>
