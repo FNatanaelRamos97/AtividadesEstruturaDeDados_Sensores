@@ -15,9 +15,9 @@ O primeiro programa deve processar um arquivo contendo diversas leituras no segu
  TIMESTAMP, ID_SENSOR, VALOR
 
 **Onde os campos representam**
-<TIMESTAMP> data e hora da medida no formato unix epoch.
-<ID_SENSOR> string sem espaço que representa cada sensor
-<VALOR> Valor numérico em ponto flutuante que representa a medida fornecida pelo sensor.
+TIMESTAMP: data e hora da medida no formato unix epoch.
+ID_SENSOR: string sem espaço que representa cada sensor
+VALOR: Valor numérico em ponto flutuante que representa a medida fornecida pelo sensor.
 Essas leituras referem-se a diferentes sensores, que aparecem misturados ao longo do arquivo.
 
 **Esse programa deverá:**
@@ -43,8 +43,10 @@ Crie um programa adicional que gere um arquivo de teste com as seguintes caracte
 
 Para cada sensor, o programa deve criar 1000 leituras aleatórias com valores numéricos aleatórios e timestamps sorteados dentro da data fornecida pelo usuário.
 
-O arquivo gerado deve seguir o formato: <TIMESTAMP> <ID_SENSOR> <VALOR>
+O arquivo gerado deve seguir o formato: TIMESTAMP, ID_SENSOR, VALOR.
 
 TIMESTAMP: data e hora da medida no formato unix epoch.
-ID_SENSOR: string sem espaço que representa cada sensor
+
+ID_SENSOR: string sem espaço que representa cada sensor.
+
 VALOR: Valor numérico em ponto flutuante que representa a medida fornecida pelo sensor.
