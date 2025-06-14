@@ -14,11 +14,11 @@ O primeiro programa deve processar um arquivo contendo diversas leituras no segu
 
  TIMESTAMP, ID_SENSOR, VALOR
 
-**Onde os campos representam**
-TIMESTAMP: data e hora da medida no formato unix epoch.
-ID_SENSOR: string sem espaço que representa cada sensor
-VALOR: Valor numérico em ponto flutuante que representa a medida fornecida pelo sensor.
-Essas leituras referem-se a diferentes sensores, que aparecem misturados ao longo do arquivo.
+**Onde os campos representam**<br>
+TIMESTAMP: data e hora da medida no formato unix epoch.<br>
+ID_SENSOR: string sem espaço que representa cada sensor.<br>
+VALOR: Valor numérico em ponto flutuante que representa a medida fornecida pelo sensor.<br>
+Essas leituras referem-se a diferentes sensores, que aparecem misturados ao longo do arquivo.<br>
 
 **Esse programa deverá:**
 - Identificar os diferentes sensores presentes.
