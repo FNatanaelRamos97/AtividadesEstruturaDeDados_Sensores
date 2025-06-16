@@ -10,7 +10,7 @@ Ao escrever o nome do programa na linha de comando, é obrigratório escrever o 
 
 Caso a condição não seja satisteita, o programa é concluído com erro.
 
-    ``` c
+    ```c
     if(argc != 2){
         printf("Numero de argumentos inválidos!\n");
         return -1;
@@ -26,7 +26,7 @@ Caso a condição não seja satisteita, o programa é concluído com erro.
 **Função Contador**<br>
 Quando as condições são satifeitas, o código seguirá para a seguinte etapa abaixo:
 
-    ``` c
+    ```c
     int cont = Contador(argv);
     if(cont == -1){
         printf("Erro ao contar as linhas do arquivo!\nPrograma encerrado!\n");
