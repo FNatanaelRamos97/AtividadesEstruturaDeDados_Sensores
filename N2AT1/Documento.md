@@ -26,44 +26,44 @@ fclose(file);
 **Função Contador**<br>
 Quando as condições são satifeitas, o código seguirá para a seguinte etapa abaixo:
 
-    ```c
-    int cont = Contador(argv);
-    if(cont == -1){
-        printf("Erro ao contar as linhas do arquivo!\nPrograma encerrado!\n");
+```c
+int cont = Contador(argv);
+if(cont == -1){
+    printf("Erro ao contar as linhas do arquivo!\nPrograma encerrado!\n");
+    return -1;
+}
+
+printf("Quantidade de linhas: %d\n", cont);
+
+DadosSensor *dados = malloc(cont * sizeof(DadosSensor));
+```
+Esta função abre o arquivo de dados e conta o número total de linhas, retornando o valor para ser usado na alocação dinâmica da estrutura que armazenará os dados.<br>
+
+```c
+int Contador(char *argv[]){
+    if(argv[1] == NULL){
+        printf("Argumento inválido\n");
         return -1;
     }
 
-    printf("Quantidade de linhas: %d\n", cont);
-
-    DadosSensor *dados = malloc(cont * sizeof(DadosSensor));
-    ```
-Esta função abre o arquivo de dados e conta o número total de linhas, retornando o valor para ser usado na alocação dinâmica da estrutura que armazenará os dados.<br>
-
-    ```c
-    int Contador(char *argv[]){
-        if(argv[1] == NULL){
-            printf("Argumento inválido\n");
-            return -1;
-        }
-
-        FILE *file = fopen(argv[1], "r");
-        if(file == NULL){
-            printf("Arquivo não encontrado!\n");
-            return -1;
-        }
-
-        char frase[100];
-        int cont = 0;
-        while(fgets(frase, sizeof(frase), file) != NULL) {
-            ++cont;
-        }
-        fclose(file);
-
-        if(cont == 0) return -1;
-
-        return cont;
+    FILE *file = fopen(argv[1], "r");
+    if(file == NULL){
+        printf("Arquivo não encontrado!\n");
+        return -1;
     }
-    ```
+
+    char frase[100];
+    int cont = 0;
+    while(fgets(frase, sizeof(frase), file) != NULL) {
+        ++cont;
+    }
+    fclose(file);
+
+    if(cont == 0) return -1;
+
+    return cont;
+}
+```
 **Função CarregarDados**<br>
 Após contar as linhas, os dados são carregados do arquivo para a estrutura dinâmica. Cada linha do arquivo é lida e seus dados separados em timestamp, sensor e medição, que são armazenados na estrutura `DadosSensor`.
 
