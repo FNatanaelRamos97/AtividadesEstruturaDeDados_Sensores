@@ -492,8 +492,8 @@ free(dataHora);
 Ao escrever o nome do programa na linha de comando, é obrigatório fornecer os seguintes argumentos:
 
 1. Nome do arquivo a ser gerado (sem a extensão)
-2. Data e hora de início no formato **dd/mm/yyyy-hh\:mm****:ss**
-3. Data e hora de fim no formato **dd/mm/yyyy-hh\:mm****:ss**
+2. Data e hora de início no formato **dd/mm/yyyy-hh:mm:ss**
+3. Data e hora de fim no formato **dd/mm/yyyy-hh:mm:ss**
 4. Lista de sensores separados por vírgula
 5. Lista de tipos de dados separados por vírgula (**int**, **float**, **bool**, ou **string**)
 
