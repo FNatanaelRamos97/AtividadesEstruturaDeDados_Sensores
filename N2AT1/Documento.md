@@ -10,19 +10,19 @@ Ao escrever o nome do programa na linha de comando, é obrigratório escrever o 
 
 Caso a condição não seja satisteita, o programa é concluído com erro.
 
-    ```c
-    if(argc != 2){
-        printf("Numero de argumentos inválidos!\n");
-        return -1;
-    }
+```c
+if(argc != 2){
+    printf("Numero de argumentos inválidos!\n");
+    return -1;
+}
 
-    FILE *file = fopen(argv[1],"r");
-    if(file == NULL){
-        printf("Arquivo inválido ou inexistente!\nDigite o nome do arquivo e a extensão .txt!\nPrograma encerrado\n");
-        return -1;
-    }
-    fclose(file);
-    ```
+FILE *file = fopen(argv[1],"r");
+if(file == NULL){
+    printf("Arquivo inválido ou inexistente!\nDigite o nome do arquivo e a extensão .txt!\nPrograma encerrado\n");
+    return -1;
+}
+fclose(file);
+```
 **Função Contador**<br>
 Quando as condições são satifeitas, o código seguirá para a seguinte etapa abaixo:
 
