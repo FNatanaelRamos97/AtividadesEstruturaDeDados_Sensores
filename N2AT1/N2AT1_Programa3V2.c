@@ -71,9 +71,9 @@ int main(int argc, char *argv[]){
 
     token = strtok(tipoLinha, ",");
     while(token != NULL){
-        if(strcmp(token, "int") != 0 && strcmp(token, "float") != 0 && strcmp(token, "string") != 0 && strcmp(token, "bool") != 0){
+        if(strcmp(token, "CONJ_Z") != 0 && strcmp(token, "CONJ_Q") != 0 && strcmp(token, "TEXTO") != 0 && strcmp(token, "BINARIO") != 0){
             printf("O tipo \"%s\" não é reconhecido\n", token);
-            printf("Programa encerrado!\n");
+            MensagemErro();
             return -1;
         }
 
@@ -94,23 +94,30 @@ int main(int argc, char *argv[]){
 
     srand(time(NULL));
 
+    /*
+    CONJ_Z:  para dados tipo inteiro
+    CONJ_Q: para dados do tipo float
+    TEXTO para dados do tipo string
+    BINARIO: para dados do tipo booleano.
+    */
+
     for (int i = 0; i < 2000; i++) {
         int s = rand() % numSensores; 
         time_t randomTimestamp = inicio + rand() % (fim - inicio + 1);
         
-        if (strcmp(tipo[s], "int") == 0) {
+        if (strcmp(tipo[s], "CONJ_Z") == 0) {
             int valor = rand() % 1000;
             fprintf(file, "%ld %s %d\n", randomTimestamp, sensores[s], valor);
         }
-        else if (strcmp(tipo[s], "float") == 0) {
+        else if (strcmp(tipo[s], "CONJ_Q") == 0) {
             float valor = (float)rand() / RAND_MAX * 100.0;
             fprintf(file, "%ld %s %.2f\n", randomTimestamp, sensores[s], valor);
         }
-        else if (strcmp(tipo[s], "bool") == 0) {
+        else if (strcmp(tipo[s], "BINARIO") == 0) {
             const char *valor = (rand() % 2 == 0) ? "true" : "false";
             fprintf(file, "%ld %s %s\n", randomTimestamp, sensores[s], valor);
         }
-        else if (strcmp(tipo[s], "string") == 0) {
+        else if (strcmp(tipo[s], "TEXTO") == 0) {
             char codigo[17];
             int len = rand() % 16 + 1;
             for (int j = 0; j < len; j++) {
@@ -179,6 +186,7 @@ void MensagemErro(){
     printf("A linha de comando deve possuir:\n1 - Nome do programa a ser executado.\n2 - Nome do arquivo a ser gerado sem a extensão.\n");
     printf("3 - Data e hora de inicio no formato especificado no exemplo abaixo.\n4 - Data e hora de fim no formato especificado no exemplo abaixo.\n5 - Nome dos sensores.\n6 - Nome dos tipos de dados.\n");
     printf("\nSegue o formato a seguir:\n");
-    printf("N2AT1_Programa3V2 arquivo 25/12/2024-12:00:00 31/12/2024-12:00:00 TEMP,UMID,FLUX int,float,bool\n");
+    printf("N2AT1_Programa3V2 arquivo 25/12/2024-12:00:00 31/12/2024-12:00:00 TEMP,UMID,FLUX CONJ_Z,CONJ_Q,BINARIO\n");
+    printf("CONJ_Z é int, CONJ_Q é float, TEXTO é string, BINARIO é bool.\n");
     printf("Programa encerrado!\n");
 }
