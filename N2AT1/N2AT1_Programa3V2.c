@@ -94,13 +94,6 @@ int main(int argc, char *argv[]){
 
     srand(time(NULL));
 
-    /*
-    CONJ_Z:  para dados tipo inteiro
-    CONJ_Q: para dados do tipo float
-    TEXTO para dados do tipo string
-    BINARIO: para dados do tipo booleano.
-    */
-
     for (int i = 0; i < 2000; i++) {
         int s = rand() % numSensores; 
         time_t randomTimestamp = inicio + rand() % (fim - inicio + 1);
