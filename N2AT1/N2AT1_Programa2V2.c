@@ -59,19 +59,30 @@ int main(int argc, char * argv[]){
         return -1;
     }
 
+    int i = 0;
+    if(dados[i].timestamp < dados[i+1].timestamp){
+        printf("Arquivo em ordem crescente!\nPrograma encerrado!\n");
+        return -1;
+    }
+
     //Quarta etapa - Decompõe os timestamp da estrutura dados e carrega na estrutura dataHora
     for(int i=0; i<cont; i++){
         if(decompor_timestamp(dados, dataHora, i) != 0){
             printf("Erro ao decompor os timestamp!\n");
             return -1;
         };
-        //printf("%d/%d/%d %d:%d:%d %s %s\n",dataHora[i].dia, dataHora[i].mes, dataHora[i].ano, dataHora[i].hora, dataHora[i].minuto, dataHora[i].segundo, dados[i].sensor, dados[i].medicao);
+        printf("%d/%d/%d %d:%d:%d %s %s\n",dataHora[i].dia, dataHora[i].mes, dataHora[i].ano, dataHora[i].hora, dataHora[i].minuto, dataHora[i].segundo, dados[i].sensor, dados[i].medicao);
     }
 
     //Quinta etapa - Captura o data e hora informado na linha de comando e transforma em timestamp válido  
     long timestamp = capturar_timestamp_valido(argv);
     if(timestamp == -1){
         printf("Erro ao carregar Timestamp válido!\nPrograma encerrado!\n");
+        return -1;
+    }
+
+    if(timestamp > dados[i].timestamp || timestamp < dados[cont-1].timestamp){
+        printf("Data/Hora digitado está fora do intervalo!\nPrograma encerrado!\n");
         return -1;
     }
     
