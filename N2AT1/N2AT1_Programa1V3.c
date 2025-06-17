@@ -189,6 +189,14 @@ int CarregarDados(DadosSensor *dados, int *tamanho, char *argv[]){
         char *sensor = strtok(NULL, " ");
         char *medicao = strtok(NULL, "\n");
 
+        if(timestamp == NULL || sensor == NULL || medicao == NULL){
+            printf("Linha %d ignorada!\nErro ao receber os dados!\n",i);
+            dados[i].timestamp = 0;
+            strcpy(dados[i].sensor, "");
+            strcpy(dados[i].medicao, "");
+            continue;
+        }
+
         dados[i].timestamp = strtol(timestamp, NULL, 10);
         strncpy(dados[i].sensor, sensor, sizeof(dados->sensor));
         strncpy(dados[i].medicao, medicao, sizeof(dados->medicao));
@@ -236,7 +244,7 @@ int AlgoritmoOrdenacao(DadosSensor *separar, int *tamanho){
 
     for(int i=0; i<*tamanho; i++){
         for(int j = i+1; j<*tamanho ;j++){
-            if(separar[i].timestamp>separar[j].timestamp){
+            if(separar[i].timestamp<separar[j].timestamp){//Aqui ocorre a troca de ordem
 
                 timestamp = separar[j].timestamp;
                 strcpy(sensor, separar[j].sensor);
